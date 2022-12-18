@@ -1,18 +1,6 @@
 import * as vscode from 'vscode';
 import { getNonce } from "../utils/nonce";
 
-/**
- * Provider for cat scratch editors.
- * 
- * Cat scratch editors are used for `.cscratch` files, which are just json files.
- * To get started, run this extension and open an empty `.cscratch` file in VS Code.
- * 
- * This provider demonstrates:
- * 
- * - Setting up the initial webview for a custom editor.
- * - Loading scripts and styles in a custom editor.
- * - Synchronizing changes between a text document and a custom editor.
- */
 export class EDIDoctorEditorProvider implements vscode.CustomTextEditorProvider {
 
 	public static register(context: vscode.ExtensionContext): vscode.Disposable {
@@ -87,8 +75,8 @@ export class EDIDoctorEditorProvider implements vscode.CustomTextEditorProvider 
 		const styleVSCodeUri = webview.asWebviewUri(vscode.Uri.joinPath(
 			this.context.extensionUri, 'media', 'vscode.css'));
 
-		const styleMainUri = webview.asWebviewUri(vscode.Uri.joinPath(
-			this.context.extensionUri, 'media', 'catScratch.css'));
+		// const styleMainUri = webview.asWebviewUri(vscode.Uri.joinPath(
+		// 	this.context.extensionUri, 'media', 'catScratch.css'));
 
 		// Use a nonce to whitelist which scripts can be run
 		const nonce = getNonce();
@@ -110,7 +98,7 @@ export class EDIDoctorEditorProvider implements vscode.CustomTextEditorProvider 
 				<link href="${styleResetUri}" rel="stylesheet" />
 				<link href="${styleVSCodeUri}" rel="stylesheet" />
 
-				<title>Cat Scratch</title>
+				<title>EDI Doctor</title>
 			</head>
 			<body>				
 				<script nonce="${nonce}" src="${scriptUri}"></script>
