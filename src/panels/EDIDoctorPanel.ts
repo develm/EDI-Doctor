@@ -7,7 +7,7 @@ export class EDIDoctorPanel {
    */
   public static currentPanel: EDIDoctorPanel | undefined;
 
-  public static readonly viewType = "swiper";
+  public static readonly viewType = "ediDoctor";
 
   private readonly _panel: vscode.WebviewPanel;
   private readonly _extensionUri: vscode.Uri;
@@ -28,7 +28,7 @@ export class EDIDoctorPanel {
     // Otherwise, create a new panel.
     const panel = vscode.window.createWebviewPanel(
       EDIDoctorPanel.viewType,
-      "VSinder",
+      "EDI Doctor",
       column || vscode.ViewColumn.One,
       {
         // Enable javascript in the webview
@@ -103,18 +103,6 @@ export class EDIDoctorPanel {
     // // And the uri we use to load this script in the webview
     const scriptUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._extensionUri, "out", "compiled", "EDIDoctor.js")
-    );
-
-    // Local path to css styles
-    const styleResetPath = vscode.Uri.joinPath(
-      this._extensionUri,
-      "media",
-      "reset.css"
-    );
-    const stylesPathMainPath = vscode.Uri.joinPath(
-      this._extensionUri,
-      "media",
-      "vscode.css"
     );
 
     // Uri to load styles into webview

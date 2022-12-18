@@ -38,8 +38,8 @@
     ],
     "commands": [
       {
-        "command": "edi-doctor.helloWorld",
-        "title": "Hello World"
+        "command": "edi-doctor.ediVisualize",
+        "title": "Visualize EDI File"
       }
     ]
   },
