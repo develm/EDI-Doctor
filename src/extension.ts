@@ -10,6 +10,11 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('edi-doctor.ediVisualize', () => {
 		EDIDoctorPanel.createOrShow(context.extensionUri);
 	}));
+	context.subscriptions.push(vscode.commands.registerCommand("edi-doctor.refresh", () => {
+		EDIDoctorPanel.kill();
+		EDIDoctorPanel.createOrShow(context.extensionUri);
+	}));
+
 	context.subscriptions.push(EDIDoctorEditorProvider.register(context));
 }
 

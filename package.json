@@ -11,7 +11,8 @@
     "Programming Languages"
   ],
   "activationEvents": [
-    "onCommand:edi-doctor.helloWorld"
+    "onCommand:edi-doctor.helloWorld",
+    "onCommand:edi-doctor.refresh"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -40,6 +41,10 @@
       {
         "command": "edi-doctor.ediVisualize",
         "title": "Visualize EDI File"
+      },
+      {
+        "command": "edi-doctor.refresh",
+        "title": "Refresh WebView"
       }
     ]
   },
