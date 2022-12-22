@@ -6,6 +6,7 @@ import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
 import path from "path";
 import fs from "fs";
+import { optimizeImports } from "carbon-preprocess-svelte";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -20,6 +21,7 @@ export default fs
         format: "iife",
         name: "app",
         file: "out/compiled/" + name + ".js",
+        inlineDynamicImports: true,
       },
       plugins: [
         svelte({
@@ -30,7 +32,10 @@ export default fs
           css: (css) => {
             css.write(name + ".css");
           },
-          preprocess: sveltePreprocess(),
+          preprocess: [
+            sveltePreprocess(), 
+            optimizeImports()
+          ],
         }),
 
         // If you have external dependencies installed from

@@ -118,9 +118,9 @@ export class EDIDoctorPanel {
       "media",
       "vscode.css"
     ));
-    const cssUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "out", "compiled/swiper.css")
-    );
+    // const cssUri = webview.asWebviewUri(
+    //   vscode.Uri.joinPath(this._extensionUri, "out", "compiled/swiper.css")
+    // );
 
     // Use a nonce to only allow specific scripts to be run
     const nonce = getNonce();
@@ -133,13 +133,12 @@ export class EDIDoctorPanel {
 					Use a content security policy to only allow loading images from https or from our extension directory,
 					and only allow scripts that have a specific nonce.
         -->
-        <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src 'unsafe-inline' ${
-      webview.cspSource
-    }; script-src 'nonce-${nonce}';">
+        <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src https://unpkg.com 'unsafe-inline' 
+        ${webview.cspSource}; script-src 'nonce-${nonce}';">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/carbon-components-svelte/css/g80.css" />
 				<link href="${stylesResetUri}" rel="stylesheet">
 				<link href="${stylesMainUri}" rel="stylesheet">
-        <link href="${cssUri}" rel="stylesheet">
         <script nonce="${nonce}">
             
         </script>
