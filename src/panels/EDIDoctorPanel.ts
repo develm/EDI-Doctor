@@ -118,9 +118,9 @@ export class EDIDoctorPanel {
       "media",
       "vscode.css"
     ));
-    // const cssUri = webview.asWebviewUri(
-    //   vscode.Uri.joinPath(this._extensionUri, "out", "compiled/swiper.css")
-    // );
+    const cssUri = webview.asWebviewUri(
+      vscode.Uri.joinPath(this._extensionUri, "out", "compiled", "bundle.css")
+    );
 
     // Use a nonce to only allow specific scripts to be run
     const nonce = getNonce();
@@ -139,6 +139,7 @@ export class EDIDoctorPanel {
         <link rel="stylesheet" href="https://unpkg.com/carbon-components-svelte/css/g80.css" />
 				<link href="${stylesResetUri}" rel="stylesheet">
 				<link href="${stylesMainUri}" rel="stylesheet">
+        <link href="${cssUri}" rel="stylesheet">
         <script nonce="${nonce}">
             
         </script>

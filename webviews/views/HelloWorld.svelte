@@ -1,9 +1,14 @@
 <script>
     import { Accordion, AccordionItem } from "carbon-components-svelte";
+    import Identifier from "../components/Identifier.svelte";
 </script>
   
 <Accordion align="start">
-  <AccordionItem title="Natural Language Classifier" open>
+  <AccordionItem open>
+    <div slot="title">
+      <Identifier identifier="R4" />
+      <span>Natural Language Classifier</span>
+    </div>
     <p>
       Natural Language Classifier uses advanced natural language processing and
       machine learning techniques to create custom classification models. Users
