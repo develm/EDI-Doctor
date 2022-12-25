@@ -133,13 +133,16 @@ export class EDIDoctorPanel {
 					Use a content security policy to only allow loading images from https or from our extension directory,
 					and only allow scripts that have a specific nonce.
         -->
-        <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src https://unpkg.com 'unsafe-inline' 
+        <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src https://unpkg.com https://cdnjs.cloudflare.com 'unsafe-inline' 
         ${webview.cspSource}; script-src 'nonce-${nonce}';">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://unpkg.com/carbon-components-svelte/css/g80.css" />
 				<link href="${stylesResetUri}" rel="stylesheet">
 				<link href="${stylesMainUri}" rel="stylesheet">
         <link href="${cssUri}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" 
+          integrity="sha512-YHuwZabI2zi0k7c9vtg8dK/63QB0hLvD4thw44dFo/TfBFVVQOqEG9WpviaEpbyvgOIYLXF1n7xDUfU3GDs0sw==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script nonce="${nonce}">
             
         </script>
